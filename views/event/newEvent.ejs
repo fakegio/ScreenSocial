@@ -1,0 +1,101 @@
+<%- include('../partials/header.ejs')%>
+      <main class="flex flex-col justify-center h-full w-1/2 mx-auto">
+        <form class="new-form" action="/events" method="POST"  enctype="multipart/form-data">
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="category"
+              >Category</label
+            >
+            <select class="w-full" name="category" id="category" required>
+              <option selected disabled value="">Please select a genre</option>
+              <option value="Horror">Horror</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Drama">Drama</option>
+              <option value="Action">Action</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="title"
+              >Title</label
+            >
+            <input
+              class="w-full"
+              type="text"
+              name="title"
+              id="title"
+              placeholder="title"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="details"
+              >Details</label
+            >
+            <input
+              class="w-full"
+              type="text"
+              name="details"
+              id="details"
+              placeholder="description"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="location"
+              >Where</label
+            >
+            <input
+              class="w-full"
+              type="text"
+              name="location"
+              id="location"
+              placeholder="location"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="start_date"
+              >Start</label
+            >
+            <input
+              class="w-full"
+              name="start_date"
+              id="start_date"
+              type="datetime-local"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="end_date">End</label>
+            <input
+              class="w-full"
+              name="end_date"
+              id="end_date"
+              type="datetime-local"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="image"
+              >Image</label
+            >
+            <input
+              class="w-full"
+              name="image"
+              id="image"
+              type="file"
+              required
+            />
+          </div>
+          <div>
+            <input
+              class="bg-blue-600 w-full h-7 text-white md:text-lg cursor-pointer"
+              type="submit"
+              name="button"
+              id="button"
+            />
+          </div>
+        </form>
+      </main>
+    </div>
+    <%- include('../partials/footer.ejs')%>

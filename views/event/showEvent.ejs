@@ -1,0 +1,56 @@
+<%- include('../partials/header.ejs')%>
+<main class="flex flex-col justify-center items-center h-full text-center">
+  <div class="flex gap-x-4">
+    <img
+      class="w-32 md:w-40 ml-5"
+      src="/images/<%=event.image%>"
+      alt="movie poster"
+    />
+    <div class="flex flex-col text-left">
+      <div class="flex flex-col justify-center items-center gap-3">
+        <h1 class="font-bold text-2xl text-center"><%= event.title%></h1>
+        <form
+          class="flex justify-evenly w-3/6 text-base"
+          action="/events/<%=event.id%>/rsvp"
+          method="POST"
+        >
+          <p class="font-medium">Going?</p>
+          <button
+            class="bg-green-500 w-1/6 rounded-md font-medium hover:bg-green-600"
+            name="rsvp_status"
+            value="YES"
+          >
+            Yes
+          </button>
+          <button
+            class="bg-red-500 w-1/6 rounded-md font-medium hover:bg-red-600"
+            name="rsvp_status"
+            value="NO"
+          >
+            No
+          </button>
+          <button
+            class="bg-blue-500 w-1/5 rounded-md font-medium hover:bg-blue-600"
+            name="rsvp_status"
+            value="MAYBE"
+          >
+            Maybe
+          </button>
+        </form>
+      </div>
+      <p class="md:text-lg">
+        <strong>Host: </strong><%= event.host_name.firstName + " " +
+        event.host_name.lastName%>
+      </p>
+      <p class="md:text-lg"><strong>Category: </strong><%= event.category%></p>
+      <p class="md:text-lg"><strong>Details: </strong><%= event.details%></p>
+      <p class="md:text-lg"><strong>Location: </strong><%= event.location%></p>
+      <p class="md:text-lg">
+        <strong>Start Date: </strong><%= event.start_date%>
+      </p>
+      <p class="md:text-lg"><strong>End Date: </strong><%= event.end_date%></p>
+      <p class="md:text-lg"><strong>RSVPs: </strong><%=yes_count%></p>
+    </div>
+  </div>
+</main>
+<%- include('../partials/footer.ejs')%>

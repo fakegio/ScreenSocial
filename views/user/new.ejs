@@ -1,0 +1,41 @@
+<%- include('../partials/header.ejs')%>
+<form
+  action="/users"
+  method="POST"
+  class="user-form flex flex-col items-center text-lg font-normal justify-evenly h-1/2"
+>
+  <div class="sm:w-1/3 lg:w-1/5 flex justify-between">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" required />
+  </div>
+
+  <div class="sm:w-1/3 lg:w-1/5 flex justify-between">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" required />
+  </div>
+
+  <div class="sm:w-1/3 lg:w-1/5 flex justify-between">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required />
+  </div>
+
+  <div class="sm:w-1/3 lg:w-1/5 flex justify-between">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      minlength="8"
+      maxlength="64"
+      required
+    />
+  </div>
+
+  <input
+    class="text-white text-lg bg-slate-700 rounded-md px-4 py-2 font-semibold hover:text-slate-300"
+    type="submit"
+    value="Sign Up"
+  />
+</form>
+
+<%- include('../partials/footer.ejs')%>

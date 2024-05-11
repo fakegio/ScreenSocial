@@ -1,0 +1,105 @@
+<%- include('../partials/header.ejs')%>
+      <main class="flex flex-col justify-center h-full w-1/2 mx-auto">
+        <form class="new-form" method="POST"  enctype="multipart/form-data" action="/events/<%=event._id%>?_method=PUT">
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="category"
+              >Category</label
+            >
+            <select class="w-full" name="category" id="category" required>
+              <option value="Horror" <%= (event.category === 'Horror') ? 'selected' : '' %>>Horror</option>
+              <option value="Comedy" <%= (event.category === 'Comedy') ? 'selected' : '' %>>Comedy</option>
+              <option value="Drama" <%= (event.category === 'Drama') ? 'selected' : '' %>>Drama</option>
+              <option value="Action" <%= (event.category === 'Action') ? 'selected' : '' %>>Action</option>
+              <option value="Other" <%= (event.category === 'Other') ? 'selected' : '' %>>Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="title"
+              >Title</label
+            >
+            <input
+              class="w-full"
+              type="text"
+              name="title"
+              id="title"
+              placeholder="title"
+              value="<%= event.title%>"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="details"
+              >Details</label
+            >
+            <input
+              class="w-full"
+              type="text"
+              name="details"
+              id="details"
+              placeholder="description"
+              value="<%= event.details%>"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="location"
+              >Where</label
+            >
+            <input
+              class="w-full"
+              type="text"
+              name="location"
+              id="location"
+              placeholder="location"
+              value="<%= event.location%>"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="start_date"
+              >Start</label
+            >
+            <input
+              class="w-full"
+              name="start_date"
+              id="start_date"
+              type="datetime-local"
+              value="<%= event.start_date%>"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="end_date">End</label>
+            <input
+              class="w-full"
+              name="end_date"
+              id="end_date"
+              type="datetime-local"
+              value="<%= event.end_date%>"
+              required
+            />
+          </div>
+          <div>
+            <label class="inline-block mb-1 md:text-lg" for="image"
+              >Image</label
+            >
+            <input
+              class="w-full"
+              name="image"
+              id="image"
+              type="file"
+              required
+            />
+          </div>
+          <div>
+            <input
+              class="bg-blue-600 w-full h-7 text-white md:text-lg cursor-pointer"
+              type="submit"
+              name="button"
+              id="button"
+            />
+          </div>
+        </form>
+      </main>
+    </div>
+    <%- include('../partials/footer.ejs')%>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create A New Event</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
+  <body class="flex flex-col justify-between h-screen text-xs">
+    <div>
+      <!-- header -->
+      <header
+        class="flex justify-between items-center pt-5 border-b border-gray-300 pb-5"
+      >
+        <a href="/"
+          ><img
+            class="w-20 object-contain absolute left-4 top-4 sm:w-52"
+            src="/images/screenSocial.jpg"
+            alt="ScreenSocial logo"
+        /></a>
+        <ul class="flex justify-evenly gap-4 sm:text-xl mr-5">
+          <%if(!user){%>
+          <li>
+            <a href="/users/new">Sign Up</a>
+          </li>
+          <li>
+            <a href="/users/login">Login</a>
+          </li>
+          <%}else{%>
+          <li>
+            <a href="/events/new">New Event</a>
+          </li>
+          <li>
+            <a href="/users/profile"><%=user.firstName+"'s "+"Profile"%></a>
+          </li>
+          <li>
+            <a href="/users/logout">Logout</a>
+          </li>
+          <%}%>
+        </ul>
+      </header>
+      <!-- end header -->
+      <!-- nav -->
+      <nav>
+        <ul
+          class="flex justify-center gap-x-10 sm:text-xl md:justify-start py-4 ml-5"
+        >
+          <li>
+            <a href="/events">Events</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="/contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- end nav -->
+    </div>
+    <% if(errorMessages.length > 0) {%> <% errorMessages.forEach(message=>{%>
+    <div class="error"><%=message%></div>
+    <%});%> <%}%> <% if(successMessages.length > 0) {%> <%
+    successMessages.forEach(message=>{%>
+    <div class="success"><%=message%></div>
+    <%});%> <%}%>
+  </body>
+</html>
